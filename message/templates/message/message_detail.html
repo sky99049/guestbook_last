@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>檢視留言</h2>
+<a href="{% url 'msg_delete' message.id %}">刪除</a>
+<table border="1">
+  <tr>
+    <th>留言者</th>
+    <td>{{ message.user }}</td>
+  </tr>
+  <tr>
+    <th>留言主題</th>
+    <td>{{ message.subject }}</td>
+  </tr>
+  <tr>
+    <th>留言內容</th>
+    <td>{{ message.content|linebreaksbr }}</td>
+  </tr>
+  <tr>
+    <th>留言時間</th>
+    <td>{{ message.publication_date }}</td>
+  </tr>
+</table>
+{% endblock %}

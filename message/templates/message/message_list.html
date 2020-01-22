@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ul>
+  {% for message in message_list %}
+  <li>
+    {{ message.publication_date }}
+    {% if user.is_authenticated %}
+      <a href="{{ message.id }}/delete/">刪除</a>
+    {% endif %}
+    <a href="{{ message.id }}/">{{ message.subject }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
